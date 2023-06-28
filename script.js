@@ -6,7 +6,11 @@ const prevButton = document.getElementById("prev-btn");
 const nextButton = document.getElementById("next-btn");
 
 function updateImage() {
-  imageElement.src = "images/" + images[currentIndex];
+  imageElement.classList.add("image-hidden");
+  setTimeout(() => {
+    imageElement.src = "images/" + images[currentIndex];
+    imageElement.classList.remove("image-hidden");
+  }, 300);
   prevButton.hidden = currentIndex === 0;
   nextButton.hidden = currentIndex === images.length - 1;
 }
